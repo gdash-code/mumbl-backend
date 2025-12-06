@@ -1,0 +1,99 @@
+{
+  "info": {
+    "_postman_id": "mumbl-transcription-api",
+    "name": "Mumbl Transcription API",
+    "description": "Test collection for Mumbl backend transcription API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://192.168.1.168:8000/health",
+          "protocol": "http",
+          "host": [
+            "192",
+            "168",
+            "1",
+            "168"
+          ],
+          "port": "8000",
+          "path": [
+            "health"
+          ]
+        },
+        "description": "Check if the backend is running and healthy"
+      },
+      "response": []
+    },
+    {
+      "name": "Transcribe Audio (M4A)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "/tmp/test_speech.m4a"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://192.168.1.168:8000/transcribe",
+          "protocol": "http",
+          "host": [
+            "192",
+            "168",
+            "1",
+            "168"
+          ],
+          "port": "8000",
+          "path": [
+            "transcribe"
+          ]
+        },
+        "description": "Upload an M4A audio file for transcription. Response includes the transcript text."
+      },
+      "response": []
+    },
+    {
+      "name": "Transcribe Audio (MP3)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "/tmp/test_audio.mp3"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://192.168.1.168:8000/transcribe",
+          "protocol": "http",
+          "host": [
+            "192",
+            "168",
+            "1",
+            "168"
+          ],
+          "port": "8000",
+          "path": [
+            "transcribe"
+          ]
+        },
+        "description": "Upload an MP3 audio file for transcription. Response includes the transcript text."
+      },
+      "response": []
+    }
+  ]
+}
