@@ -3,7 +3,7 @@ from fastapi import HTTPException
 from pydub import AudioSegment
 from faster_whisper import WhisperModel
 
-from settings import settings
+from app.core.config import settings
 
 # Explicitly point pydub at Homebrew ffmpeg (adjust if your path differs)
 AudioSegment.converter = "/opt/homebrew/bin/ffmpeg"
