@@ -65,15 +65,6 @@ Once imported, you'll see your requests in the left sidebar:
 }
 ```
 
-## Key Differences from Postman
-
-| Feature | Insomnia | Postman |
-|---------|----------|---------|
-| Import Postman collections | ✅ Yes | ✅ Yes |
-| Lightweight | ✅ Yes (smaller) | ❌ No (heavier) |
-| Keyboard shortcuts | ✅ Better | ❌ Okay |
-| Free tier | ✅ Full features | ⚠️ Limited |
-| File upload in form data | ✅ Yes | ✅ Yes |
 
 ## Troubleshooting in Insomnia
 
@@ -112,14 +103,5 @@ Once imported, you'll see your requests in the left sidebar:
 5. **Request History**
    - Insomnia saves all your requests
    - Click **Timeline** in left sidebar to view history
-
-## Next Steps
-
-Once you confirm everything works in Insomnia:
-
-1. ✅ Backend is working
-2. ✅ API is responding correctly  
-3. ⚠️ iOS app audio recording needs fixing
-4. 📱 Then test iOS app end-to-end
 
 For iOS audio recording issues, see the main `SETUP.md` file.
