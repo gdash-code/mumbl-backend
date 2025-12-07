@@ -13,6 +13,8 @@ class LLMClient:
     def generate(self, prompt: str, extra: Optional[Dict] = None) -> Dict:
         """
         TODO: implement provider-specific call. For now return a mock payload.
+        TODO: add Cohere implementation (chat vs generate), map response to sections.
+        TODO: handle auth errors and timeouts gracefully.
         """
         return {
             "provider": self.provider,

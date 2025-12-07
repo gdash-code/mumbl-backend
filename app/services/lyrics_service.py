@@ -17,7 +17,9 @@ class LyricsService:
         genius_tags = []
         prompt = build_prompt(payload, genius_tags)
 
+        # TODO: propagate rough transcript/phonetic hints into the prompt (if provided)
         # TODO: translate payload.audio_features into prompt constraints
+        # TODO: surface better errors when LLM/Genius creds are missing
         llm_output = self.llm.generate(prompt)
 
         return LyricsResponse(

@@ -15,6 +15,8 @@ async def generate_lyrics(payload: LyricsRequest):
     Stub endpoint for lyric generation. Wires Genius + LLM clients with TODOs.
     """
     try:
+        # TODO: cache Genius/LLM clients instead of recreating per request
+        # TODO: accept transcript/audio_features from frontend to guide generation
         genius = GeniusClient(settings.genius_token)
         llm = LLMClient(settings.llm_provider, settings.llm_api_key, settings.llm_model)
         service = LyricsService(genius, llm)

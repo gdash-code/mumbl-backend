@@ -7,6 +7,8 @@ from app.models.lyrics import LyricsRequest
 def build_prompt(payload: LyricsRequest, genius_tags: list[str] | None = None) -> str:
     """
     TODO: enrich prompt with phonetic/timing hints and Genius metadata tags.
+    TODO: include rough transcript (if available) as a phonetic/phrasing guide.
+    TODO: support returning structured sections (verse/chorus/bridge) explicitly.
     """
     tags = ", ".join(genius_tags or [])
     return (
