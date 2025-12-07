@@ -1,0 +1,18 @@
+# Local virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Test runner cache
+.pytest_cache/
+
+# Uploaded artifacts and logs
+uploads/
+server.log
+
+# OS/editor noise
+.DS_Store
+.vscode/
+*.swp
