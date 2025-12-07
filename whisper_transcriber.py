@@ -1,17 +1,18 @@
 # whisper_transcriber.py
-import os
 from fastapi import HTTPException
 from pydub import AudioSegment
 from faster_whisper import WhisperModel
+
+from settings import settings
 
 # Explicitly point pydub at Homebrew ffmpeg (adjust if your path differs)
 AudioSegment.converter = "/opt/homebrew/bin/ffmpeg"
 
 # Load once (choose a size: tiny/base/small/medium/large-v3)
 # On CPU, "base" is a good starting point. If you have an NVIDIA GPU, set device="cuda".
-MODEL_SIZE = os.getenv("WHISPER_MODEL", "base")
-DEVICE = os.getenv("WHISPER_DEVICE", "cpu")        # "cpu" or "cuda"
-COMPUTE_TYPE = os.getenv("WHISPER_COMPUTE", "int8")# "int8" on CPU, "float16" on CUDA
+MODEL_SIZE = settings.whisper_model
+DEVICE = settings.whisper_device        # "cpu" or "cuda"
+COMPUTE_TYPE = settings.whisper_compute # "int8" on CPU, "float16" on CUDA
 
 model = WhisperModel(MODEL_SIZE, device=DEVICE, compute_type=COMPUTE_TYPE)
 

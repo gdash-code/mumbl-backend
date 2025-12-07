@@ -28,6 +28,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 
+from settings import settings
 from whisper_transcriber import transcribe_audio
 
 app = FastAPI(
@@ -40,13 +41,13 @@ app = FastAPI(
 # Allows cross-origin requests from the specified frontend origin
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv("FRONTEND_ORIGIN", "http://localhost:3000")],
+    allow_origins=[settings.frontend_origin],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-RATE_LIMIT_PER_MINUTE = int(os.getenv("RATE_LIMIT_PER_MINUTE", "60"))
+RATE_LIMIT_PER_MINUTE = settings.rate_limit_per_minute
 
 
 class RateLimitMiddleware(BaseHTTPMiddleware):
@@ -120,7 +121,7 @@ app.add_middleware(
     window_seconds=60,
 )
 
-UPLOAD_DIR = "uploads"
+UPLOAD_DIR = settings.upload_dir
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 
